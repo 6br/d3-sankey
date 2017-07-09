@@ -170,7 +170,8 @@ export default function() {
 
     var kx = (x1 - x0 - dx) / (x - 1);
     graph.nodes.forEach(function(node) {
-      node.x1 = (node.x0 = x0 + Math.max(0, Math.min(x - 1, Math.floor(align.call(null, node, x)))) * kx) + dx;
+      node.length = node.length ? node.length : 1.0
+      node.x1 = (node.x0 = x0 + Math.max(0, Math.min(x - 1, Math.floor(align.call(null, node, x)))) * kx) + dx * node.length;
     });
   }
 
