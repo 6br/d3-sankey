@@ -324,7 +324,7 @@ export default function() {
 
     var nodes, next, x;
     for (nodes = graph.nodes, next = [], x = 0; nodes.length; ++x, nodes = next, next = []) {
-      nodes.filter(n => n.name != undefined).forEach(function(node) {
+      nodes.forEach(function(node) {
 
         node.depth = x;
         node.sourceLinks.forEach(function(link) {
@@ -401,7 +401,7 @@ export default function() {
     function relaxLeftToRight(alpha) {
 
         columns.forEach(function (nodes) {
-          let n = nodes.length;
+          var n = nodes.length;
 
           nodes.forEach(function (node) {
             if (node.targetLinks.length) {
@@ -426,7 +426,7 @@ export default function() {
     function relaxRightToLeft(alpha) {
 
         columns.slice().reverse().forEach(function (nodes) {
-          let n = nodes.length;
+          var n = nodes.length;
           nodes.forEach(function (node) {
             if (node.sourceLinks.length) {
                if (node.partOfCycle && (n > 1)/* && (i > 0) && (i < columnsLength) */) {
