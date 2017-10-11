@@ -14,7 +14,7 @@ function ascendingTargetBreadth(a, b) {
 
 function ascendingBreadth(a, b) {
   if (a.partOfCycle === b.partOfCycle) {
-     return a.value - b.value || a.y0 - b.y0
+     return b.value - a.value || a.y0 - b.y0
    } else {
      if (a.circularLinkType === 'top' || b.circularLinkType === 'bottom') {
        return -1
